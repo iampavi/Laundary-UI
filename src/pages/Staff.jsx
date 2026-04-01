@@ -4,27 +4,19 @@ export default function Staff() {
   return (
     <div className="grid grid-cols-3 gap-4">
 
-      <div className="bg-white p-5 rounded-2xl shadow-sm">
+      <div className="bg-white p-5 rounded-2xl shadow-sm border hover:shadow-md transition">
         <h3 className="font-semibold">Anisha Kapoor</h3>
         <p className="text-sm text-gray-500">Supervisor</p>
-        <div className="mt-2">
+        <div className="mt-3">
           <Badge type="success">Active</Badge>
         </div>
       </div>
 
-      <div className="bg-white p-5 rounded-2xl shadow-sm">
+      <div className="bg-white p-5 rounded-2xl shadow-sm border hover:shadow-md transition">
         <h3 className="font-semibold">Rajesh Kumar</h3>
         <p className="text-sm text-gray-500">Main Washer</p>
-        <div className="mt-2">
+        <div className="mt-3">
           <Badge type="warning">On Break</Badge>
-        </div>
-      </div>
-
-      <div className="bg-white p-5 rounded-2xl shadow-sm">
-        <h3 className="font-semibold">Sarah Jenkins</h3>
-        <p className="text-sm text-gray-500">Runner</p>
-        <div className="mt-2">
-          <Badge type="info">In Transit</Badge>
         </div>
       </div>
 
