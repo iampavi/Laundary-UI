@@ -2,32 +2,28 @@ import { Bell, Settings } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="h-16 bg-white border-b flex items-center justify-between px-8">
+    <div className="bg-white px-6 py-4 flex justify-between items-center border-b">
 
-      <h2 className="text-lg font-semibold text-gray-800">
+      <h1 className="font-semibold text-lg">
         Taj Luxe Laundry
-      </h2>
+      </h1>
 
       <div className="flex items-center gap-4">
 
-        <button
-          onClick={() => alert("Notifications")}
-          className="p-2 rounded-lg hover:bg-gray-100"
-        >
-          <Bell size={20} />
-        </button>
+        <Bell size={18} />
+        <Settings size={18} />
 
-        <button
-          onClick={() => alert("Settings")}
-          className="p-2 rounded-lg hover:bg-gray-100"
-        >
-          <Settings size={20} />
-        </button>
-
-        <div className="w-9 h-9 bg-gray-300 rounded-full cursor-pointer" />
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-gray-200 rounded-full" />
+          <div className="text-sm">
+            <p className="font-medium">Admin User</p>
+            <p className="text-xs text-gray-400">
+              Operations Lead
+            </p>
+          </div>
+        </div>
 
       </div>
-
-    </header>
+    </div>
   );
 }

@@ -1,48 +1,57 @@
-import { NavLink } from "react-router-dom";
-import { LayoutDashboard, ClipboardList, Users, BarChart3 } from "lucide-react";
-import { Hotel } from "lucide-react";
-import { CreditCard } from "lucide-react";
-
-const menu = [
-  { name: "Overview", path: "/", icon: LayoutDashboard },
-  { name: "Live Requests", path: "/orders", icon: ClipboardList },
-  { name: "Housekeeping", path: "/staff", icon: Users },
-  { name: "Rooms", path: "/rooms", icon: Hotel },
-  { name: "Payments", path: "/payments", icon: CreditCard },
-  { name: "Analytics", path: "/analytics", icon: BarChart3 },
-];
+import {
+  LayoutDashboard,
+  Activity,
+  Users,
+  DollarSign,
+  BarChart,
+  LogOut,
+} from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Sidebar() {
+  const { pathname } = useLocation();
+
+  const menu = [
+    { name: "Overview", icon: LayoutDashboard, path: "/" },
+    { name: "Live Requests", icon: Activity, path: "/admin/orders" },
+    { name: "Housekeeping", icon: Users, path: "/staff" },
+    { name: "Pricing", icon: DollarSign, path: "/pricing" },
+    { name: "Analytics", icon: BarChart, path: "/analytics" },
+  ];
+
   return (
-    <aside className="w-64 bg-white border-r px-6 py-6 flex flex-col">
+    <div className="w-64 bg-white border-r p-4 flex flex-col justify-between">
 
-      <h1 className="text-xl font-semibold mb-10">
-        Taj Operations
-      </h1>
+      <div>
+        <h2 className="text-lg font-semibold mb-6">
+          Taj Operations
+          <p className="text-xs text-gray-400">Admin Console</p>
+        </h2>
 
-      <nav className="space-y-2">
-        {menu.map((item) => {
-          const Icon = item.icon;
+        {menu.map((m) => {
+          const Icon = m.icon;
 
           return (
-            <NavLink
-              key={item.name}
-              to={item.path}
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-4 py-3 rounded-xl transition ${
-                  isActive
-                    ? "bg-blue-100 text-blue-600 font-medium"
-                    : "text-gray-600 hover:bg-gray-100"
-                }`
-              }
+            <Link
+              key={m.name}
+              to={m.path}
+              className={`flex items-center gap-3 px-3 py-2 rounded-xl mb-2 ${
+                pathname === m.path
+                  ? "bg-blue-50 text-blue-600"
+                  : "text-gray-600"
+              }`}
             >
               <Icon size={18} />
-              {item.name}
-            </NavLink>
+              {m.name}
+            </Link>
           );
         })}
-      </nav>
+      </div>
 
-    </aside>
+      <div className="text-gray-500 text-sm flex items-center gap-2">
+        <LogOut size={16} />
+        Logout
+      </div>
+    </div>
   );
 }
