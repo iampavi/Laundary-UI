@@ -2,7 +2,7 @@ import Badge from "../components/ui/Badge";
 
 export default function Staff() {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="bg-white p-6 rounded-2xl border shadow-sm">
 
       <div className="bg-white p-5 rounded-2xl shadow-sm border hover:shadow-md transition">
         <h3 className="font-semibold">Anisha Kapoor</h3>

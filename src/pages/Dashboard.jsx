@@ -21,7 +21,7 @@ export default function Dashboard() {
     <div className="space-y-6">
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
         <Card title="Total Requests Today" value="45" />
         <Card title="Pending Orders" value="12" />
         <Card title="Staff on Duty" value="8" />
@@ -29,22 +29,22 @@ export default function Dashboard() {
       </div>
 
       {/* Chart */}
-      <Card title="Order Volume (24h)">
-        <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data}>
-              <XAxis dataKey="time" />
-              <Tooltip />
-              <Line
-                type="monotone"
-                dataKey="value"
-                stroke="#2563EB"
-                strokeWidth={3}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </Card>
+     <Card title="Order Volume (24h)">
+  <div className="h-64">
+    <ResponsiveContainer width="100%" height="100%">
+      <LineChart data={data}>
+        <XAxis dataKey="time" />
+        <Tooltip />
+        <Line
+          type="monotone"
+          dataKey="value"
+          stroke="#2563EB"
+          strokeWidth={3}
+        />
+      </LineChart>
+    </ResponsiveContainer>
+  </div>
+</Card>
 
     </div>
   );
