@@ -1,6 +1,6 @@
 export default function Card({ title, value, children }) {
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-card border border-border">
+    <div className="bg-white p-5 rounded-3xl shadow-card border border-gray-100">
 
       {title && (
         <p className="text-sm text-gray-500">{title}</p>

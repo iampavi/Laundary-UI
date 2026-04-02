@@ -10,7 +10,7 @@ export default function Badge({ children, type = "default" }) {
     <span
       className={`flex items-center gap-1 px-3 py-1 text-xs rounded-full ${styles[type]}`}
     >
-      <span className="w-2 h-2 rounded-full bg-current"></span>
+     <span className="px-3 py-1 text-xs rounded-full font-medium"></span>
       {children}
     </span>
   );

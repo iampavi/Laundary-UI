@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function BottomNav() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around p-3">
+   <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-3 flex justify-around z-40">
 
       <Link to="/mobile" className="flex flex-col items-center text-xs">
         <Home size={18} />

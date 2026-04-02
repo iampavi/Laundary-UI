@@ -1,40 +1,42 @@
-import { useStore } from "../../app/store";
+import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const { cart } = useStore();
+  const { state } = useLocation();
+  const nav = useNavigate();
+  const { cart, selectedService, total } = state || {};
 
   return (
-    <div className="p-4 space-y-4 max-w-md mx-auto">
+    <div className="p-4 bg-bg min-h-screen">
 
-      <h2 className="font-semibold">Checkout</h2>
+      <h2 className="font-semibold mb-4">Checkout</h2>
 
-      {/* Cart Items */}
-      <div className="space-y-2">
-        {cart.map((item, i) => (
-          <div
-            key={i}
-            className="flex justify-between bg-white p-3 rounded-xl shadow-sm"
-          >
-            <div className="flex gap-2 items-center">
-              <img src={item.image} className="w-10 h-10" />
-              <span>{item.name}</span>
-            </div>
-            <span>₹{item.price}</span>
+      <div className="bg-white rounded-3xl p-4 shadow-card">
+
+        <p className="mb-2 font-medium">
+          Service: {selectedService?.name}
+        </p>
+
+        {cart?.map((item) => (
+          <div key={item.id} className="flex justify-between text-sm">
+            <span>{item.name} x{item.qty}</span>
+            <span>₹{item.price * item.qty}</span>
           </div>
         ))}
+
       </div>
 
-      {/* Total */}
-      <div className="flex justify-between font-semibold">
+      <div className="mt-4 flex justify-between font-semibold">
         <span>Total</span>
-        <span>
-          ₹{cart.reduce((a, b) => a + b.price, 0)}
-        </span>
+        <span>₹{total}</span>
       </div>
 
-      <button className="w-full bg-blue-600 text-white py-3 rounded-xl">
-        Place Order
-      </button>
+     <button
+  onClick={() => nav("/success")}
+  className="mt-4 w-full bg-[#0B1B34] text-white py-3 rounded-2xl"
+>
+  Pay Now
+</button>
 
     </div>
   );

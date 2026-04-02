@@ -25,15 +25,24 @@ export const useStore = create((set) => ({
     const updated = await fetchOrders();
     set({ orders: updated });
   },
-  cart: [],
+cart: [],
 
 addToCart: (item) =>
-  set((state) => ({
-    cart: [...state.cart, item],
-  })),
+  set((state) => {
+    const existing = state.cart.find((i) => i.id === item.id);
 
-removeFromCart: (id) =>
-  set((state) => ({
-    cart: state.cart.filter((i) => i.id !== id),
-  })),
+    if (existing) {
+      return {
+        cart: state.cart.map((i) =>
+          i.id === item.id
+            ? { ...i, qty: (i.qty || 0) + item.qty }
+            : i
+        ),
+      };
+    }
+
+    return {
+      cart: [...state.cart, { ...item, qty: 1 }],
+    };
+  }),
 }));

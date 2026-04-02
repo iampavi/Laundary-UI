@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/layout/Layout";
-
+import Success from "../modules/mobile/Success";
 import Dashboard from "../pages/Dashboard";
 import Orders from "../pages/Orders";
 import Pricing from "../pages/Pricing";
@@ -57,6 +57,10 @@ export const router = createBrowserRouter([
     path: "/payment",
     element: <Payment />,
   },
+  {
+  path: "/success",
+  element: <Success />,
+},
   {
   path: "/orders/:id",
   element: <Layout><OrderDetails /></Layout>,

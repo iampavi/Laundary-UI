@@ -3,21 +3,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0F172A",     // dark navy
-        secondary: "#1E293B",
-        accent: "#2563EB",
-        success: "#16A34A",
-        warning: "#F59E0B",
-        bg: "#F5F7FB",
-        card: "#FFFFFF",
-        border: "#E5E7EB",
-      },
-      boxShadow: {
-        card: "0px 4px 20px rgba(0,0,0,0.04)",
-      },
+  bg: "#F4F6FA",
+  accent: "#4CAF7D",
+  dark: "#0B1B34",
+  text: "#0F172A",
+  muted: "#94A3B8",
+},
+  boxShadow: {
+  card: "0 8px 30px rgba(0,0,0,0.04)",
+  soft: "0 2px 10px rgba(0,0,0,0.03)",
+},
       borderRadius: {
-        xl2: "16px",
-      },
+  xl: "16px",
+  "2xl": "20px",
+  "3xl": "28px",
+},
+       fontFamily: {
+      sans: ['Poppins', 'sans-serif'],
+    },
     },
   },
   plugins: [],
